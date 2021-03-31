@@ -1,4 +1,5 @@
 import './App.css';
+import scale from './scale.js'
 import { React, useRef, useEffect } from 'react';
 
 function App() {
@@ -9,20 +10,7 @@ function App() {
   useEffect(() => {
     let canvas = ref.current;
     let context = canvas.getContext('2d');
-
-    // Set display size (css pixels)
-    var canvasWidth = 800;
-    var canvasHeight = 450;
-    canvas.style.width = canvasWidth + "px";
-    canvas.style.height = canvasHeight + "px";
-
-    // Set actual size in memory, scaled to account for extra pixel density
-    var scale = window.devicePixelRatio; // Change to 1 on retina screens to see blurry canvas
-    canvas.width = Math.floor(canvasWidth * scale);
-    canvas.height = Math.floor(canvasHeight * scale);
-
-    // Normalize coordinate system to use css pixels
-    context.scale(scale, scale);
+    scale(canvas, context)
 
     var ufoColour = context.createLinearGradient(0, 0, 150, 150)
     ufoColour.addColorStop(0, 'grey')

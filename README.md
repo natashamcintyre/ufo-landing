@@ -107,3 +107,5 @@ Potential things to use.
 
 Use this linter to enforce these rules.
   https://www.npmjs.com/package/eslint-plugin-react-hooks
+
+Canvas needs scaling so that CSS pixels and actual pixel widths are in the correct ratio. See the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio)

@@ -1,1 +1,0 @@
-UFO Landing Animation

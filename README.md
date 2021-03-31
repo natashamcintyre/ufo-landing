@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# UFO Landing Animation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Documentation [here]().
 
-## Available Scripts
+## Tests
+```
+npm test
+```
+To get [test coverage](https://create-react-app.dev/docs/running-tests/#coverage-reporting), run
+```
+npm test -- --coverage
+```
+Coverage configured using [create-react-app documentation](https://create-react-app.dev/docs/running-tests/#coverage-reporting)
+## Specification
+### Animate a UFO landing
+**Must include:**
+- A sky
+- A ground
+- A UFO that starts in the sky and lands on the ground
 
-In the project directory, you can run:
+**Consider:**
+- The detail of the sky.
+- The detail of the ground.
+- The movement of the UFO.
 
-### `yarn start`
+Be as creative as you can.
+### Tech requirements:
+- The app must be deployed.
+- The app must be built in react and use react’s state management.
+- The canvas should be 800px by 450px.
+- Must not include any bitmaps (images) - everything included should be created in js and css.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+# To go in the Wiki
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Building the canvas
+I found these resources helpful:
+[Animating a Canvas with React Hooks](http://www.petecorey.com/blog/2019/08/19/animating-a-canvas-with-react-hooks/)
 
-### `yarn build`
+## Linter
+Install [ESLint](https://eslint.org/docs/user-guide/getting-started)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+npm install eslint --save-dev
+```
+[Configure](https://eslint.org/docs/user-guide/getting-started#configuration) with
+```
+npx eslint --init
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Install [ESLint React Hook plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks)
+```
+npm install eslint-plugin-react-hooks --save-dev
+```
+Then extend the recommended eslint config:
+```
+{
+  "extends": [
+    // ...
+    "plugin:react-hooks/recommended"
+  ]
+}
+```
+For more config options, see [custom configuration](https://www.npmjs.com/package/eslint-plugin-react-hooks#custom-configuration)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Research
 
-### `yarn eject`
+### Testing frameworks
+Jest - intended for unit tests of components and logic, not DOM
+Cypress - end to end testing
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Potential things to use.
+* [React hooks](https://reactjs.org/docs/hooks-overview.html)
+  - useState() - allows state in function components as opposed to class components,
+  - useEffect() - tells React to do something after rendering / updating the DOM. eg componentDidMount
+  -
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+> Only call Hooks at the top level. Don’t call Hooks inside loops, conditions, or nested functions.
+> Only call Hooks from React function components. Don’t call Hooks from regular JavaScript functions. (There is just one other valid place to call Hooks — your own custom Hooks. We’ll learn about them in a moment.)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Use this linter to enforce these rules.
+  https://www.npmjs.com/package/eslint-plugin-react-hooks

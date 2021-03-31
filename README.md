@@ -11,6 +11,7 @@ To get [test coverage](https://create-react-app.dev/docs/running-tests/#coverage
 npm test -- --coverage
 ```
 Coverage configured using [create-react-app documentation](https://create-react-app.dev/docs/running-tests/#coverage-reporting)
+
 ## Specification
 ### Animate a UFO landing
 **Must include:**

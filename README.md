@@ -12,6 +12,15 @@ npm test -- --coverage
 ```
 Coverage configured using [create-react-app documentation](https://create-react-app.dev/docs/running-tests/#coverage-reporting)
 
+
+##Linting
+Run
+```
+npx eslint <file>
+```
+
+ESLint has been configured to only warn instead of throwing errors.
+
 ## Specification
 ### Animate a UFO landing
 **Must include:**
@@ -49,6 +58,10 @@ npm install eslint --save-dev
 ```
 npx eslint --init
 ```
+Run with
+```
+npx eslint .
+```
 
 Install [ESLint React Hook plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks)
 ```
@@ -65,6 +78,18 @@ Then extend the recommended eslint config:
 ```
 For more config options, see [custom configuration](https://www.npmjs.com/package/eslint-plugin-react-hooks#custom-configuration)
 
+Install [ESLint Plugin Only Warn](https://github.com/bfanger/eslint-plugin-only-warn)
+```
+npm install eslint-plugin-only-warn --save-dev
+```
+Add to .eslintrc:
+```
+{
+    "plugins": [
+        "only-warn"
+    ]
+}
+```
 ## Research
 
 ### Testing frameworks

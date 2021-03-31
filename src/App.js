@@ -1,6 +1,7 @@
 import './App.css';
 import scale from './scale'
 import ufo from './ufoImage'
+import drawGround from './ground'
 import { React, useRef, useEffect } from 'react';
 
 function App() {
@@ -10,7 +11,9 @@ function App() {
     let canvas = ref.current;
     let context = canvas.getContext('2d');
     scale(canvas, context)
-    ufo(canvas, context)
+    context.clearRect(0, 0, canvas.width, canvas.height)
+    drawGround(context)
+    ufo(context)
   })
 
   return (

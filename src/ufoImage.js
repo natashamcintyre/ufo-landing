@@ -1,8 +1,7 @@
 var ufoXCenter = 100
 var ufoYCenter = 100
 
-const ufo = (canvas, context) => {
-  context.clearRect(0, 0, canvas.width, canvas.height)
+const ufo = (context) => {
   drawUFOTop(context)
   drawUFOBody(context)
   drawUFOlights(context)

@@ -4,6 +4,9 @@ import { React, useRef, useState } from 'react'
 
 function App() {
   let ref = useRef()
+  // console.log('%c in App', 'color: hotpink; font-weight: bold;')
+  // console.log(`assigned ref to`)
+  // console.log(ref)
 
   UfoAnimation(ref)
 

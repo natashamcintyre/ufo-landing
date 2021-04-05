@@ -1,15 +1,11 @@
-const ufoXCenter = 100
-const ufoYCenter = 100
-const ufoLength = 100
-const ufoWidth = 30
-
-function drawUfo(context) {
-  drawUFOTop(context)
-  drawUFOBody(context)
-  drawUFOlights(context)
+function drawUfo(context, details) {
+  drawUFOTop(context, details)
+  drawUFOBody(context, details)
+  drawUFOlights(context, details)
 }
 
-function drawUFOBody(context) {
+function drawUFOBody(context, details) {
+  const { ufoXCenter, ufoYCenter, ufoLength, ufoWidth } = details
   var ufoColour = context.createLinearGradient(0, 0, 150, 150)
   ufoColour.addColorStop(0, 'grey')
   ufoColour.addColorStop(1, 'silver')
@@ -27,7 +23,8 @@ function drawUFOBody(context) {
   context.fill()
 }
 
-function drawUFOTop(context) {
+function drawUFOTop(context, details) {
+  const { ufoXCenter, ufoYCenter } = details
   context.beginPath()
   context.arc(ufoXCenter, ufoYCenter, 50, 39 / 20 * Math.PI, 19 / 20 * Math.PI, true)
   context.fillStyle = 'darkgrey'
@@ -36,16 +33,17 @@ function drawUFOTop(context) {
   context.stroke()
 }
 
-function drawUFOlights(context) {
-  drawUFOlight(context, -80, 14)
-  drawUFOlight(context, 80, -14)
-  drawUFOlight(context, -27, 21)
-  drawUFOlight(context, 35, 12)
-  drawUFOlight(context, 27, -21)
-  drawUFOlight(context, -35, -10)
+function drawUFOlights(context, details) {
+  drawUFOlight(context, details, -80, 14)
+  drawUFOlight(context, details, 80, -14)
+  drawUFOlight(context, details, -27, 21)
+  drawUFOlight(context, details, 35, 12)
+  drawUFOlight(context, details, 27, -21)
+  drawUFOlight(context, details, -35, -10)
 }
 
-function drawUFOlight(context, XShift, YShift) {
+function drawUFOlight(context, details, XShift, YShift) {
+  const { ufoXCenter, ufoYCenter } = details
   context.beginPath()
   context.ellipse(ufoXCenter + XShift, ufoYCenter + YShift, 5, 10, Math.PI * 9 / 20, 0, 2 * Math.PI)
   context.fillStyle = 'yellow'

@@ -1,23 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react'
 import drawGround from './ground'
 import drawUfo from './ufoImage'
-import scale from './scale'
 
-export default function UfoAnimation (ref) {
+export default function UfoAnimation (canvas, context, moveRight, position) {
   // console.log(`%c in the UfoAnimation component`, 'color: red; font-weight: bold;')
-  const [ufoXCenter, setUfoXCenter] = useState(100)
-  const [ufoYCenter, setUfoYCenter] = useState(100)
-  let moveRight = useRef(true)
-
+  const { ufoXCenter, setUfoXCenter, ufoYCenter, setUfoYCenter } = position
   // console.log(`%c move right is ${moveRight.current}`, 'color: red;')
   // console.log(`%c ufoXCenter is ${ufoXCenter}`, 'color: red;')
   // console.log(`%c ufoYCenter is ${ufoYCenter}`, 'color: red;')
 
-  useEffect(() => {
+  // useEffect(() => {
     // console.log('%c in useEffect!', 'color: orange; font-weight: bold;')
-    let canvas = ref.current
-    let context = canvas.getContext('2d')
-    scale(canvas, context)
+
     // context.clearRect(0, 0, canvas.width, canvas.height)
 
     /* requestId assigned requestAnimationFrame Id to pass to cancelAnimationFrame
@@ -34,7 +28,7 @@ export default function UfoAnimation (ref) {
       }
       drawGround(context)
       drawUfo(context, details)
-      requestId = requestAnimationFrame(render)
+      // requestId = setTimeout(() => { requestAnimationFrame(render) }, 1000)
       animate()
     }
 
@@ -43,15 +37,16 @@ export default function UfoAnimation (ref) {
     return () => {
       cancelAnimationFrame(requestId)
     }
+  // })
 
     function animate() {
       // console.log(`%c animating...`, 'color: green;')
       // console.log(`%c moveRight is ${moveRight.current}`, 'color: green')
       checkDirection()
       if (moveRight.current === true) {
-        setTimeout(setUfoXCenter(ufoXCenter + 1), 1000)
+        setUfoXCenter(ufoXCenter + 1)
       } else {
-        setTimeout(setUfoXCenter(ufoXCenter - 1), 1000)
+        setUfoXCenter(ufoXCenter - 1)
       }
     }
 
@@ -65,7 +60,6 @@ export default function UfoAnimation (ref) {
     function toggleMoveRight() {
       moveRight.current = !moveRight.current
     }
-  })
 
   return () => {
     // setTimeout(animate, 1000)

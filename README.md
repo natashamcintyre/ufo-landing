@@ -46,7 +46,8 @@ Be as creative as you can.
 
 ## Building the canvas
 I found these resources helpful:
-[Animating a Canvas with React Hooks](http://www.petecorey.com/blog/2019/08/19/animating-a-canvas-with-react-hooks/)
+[Animating a Canvas with React Hooks, Pete Corey](http://www.petecorey.com/blog/2019/08/19/animating-a-canvas-with-react-hooks/)
+[Techniques for Animating on the Canvas in React, Phil Nash](https://philna.sh/blog/2018/09/27/techniques-for-animating-on-the-canvas-in-react/)
 
 ## Linter
 Install [ESLint](https://eslint.org/docs/user-guide/getting-started)

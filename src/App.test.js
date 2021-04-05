@@ -1,11 +1,14 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import { render, screen } from '@testing-library/react'
+import { renderHook } from '@testing-library/react-hooks'
+import ReactDOM from 'react-dom'
+import scale from './scale'
+import App from './App'
+
+jest.mock('./scale')
 
 test('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div)
+  render(<App />)
 })
 
 test('renders canvas', () => {

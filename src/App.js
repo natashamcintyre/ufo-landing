@@ -1,33 +1,11 @@
 import './App.css'
-import scale from './scale'
-import drawUfo from './ufoImage'
-import drawGround from './ground'
-import { React, useRef, useEffect } from 'react'
+import UfoAnimation from './Animation'
+import { React, useRef, useState } from 'react'
 
 function App() {
-  let ref = useRef();
+  let ref = useRef()
 
-  useEffect(() => {
-    let canvas = ref.current
-    let context = canvas.getContext('2d')
-    scale(canvas, context)
-    // context.clearRect(0, 0, canvas.width, canvas.height)
-    
-    /* requestId assigned requestAnimationFrame Id to pass to cancelAnimationFrame
-        in the event of component unmounting between requests */
-    let requestId
-    const render = () => {
-      drawGround(context)
-      drawUfo(context)
-      requestId = requestAnimationFrame(render)
-    }
-
-    render()
-
-    return () => {
-      cancelAnimationFrame(requestId)
-    }
-  })
+  UfoAnimation(ref)
 
   return (
     <div className="App">
